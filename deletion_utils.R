@@ -70,3 +70,27 @@ BAM_to_granges <- function(path,
   }
   return(bam_gr_df)
 }
+
+
+# Given BAM GenomicRanges dataframe and a template, get the span of the reads across the template. 
+# Only really makes sense if you align everything to a single sequence
+get_spans <- function(bam_gr_df, templ){
+  spans <- c()
+  pb <- txtProgressBar(0, nrow(bam_gr_df), style=3)
+  for(i in 1:nrow(bam_gr_df)){
+    setTxtProgressBar(pb, i)
+    cigar_numbers <- as.numeric(strsplit(gsub(bam_gr_df$cigar[i], pattern = "\\.", replacement = ""), "[A-Z]+")[[1]])
+    cigar_letters <- strsplit(gsub(bam_gr_df$cigar[i], pattern = "\\.", replacement = ""), "[0-9]+")[[1]][-c(1)]
+    # remove insertions
+    cigar_numbers <- cigar_numbers[cigar_letters != "I"]
+    cigar_letters <- cigar_letters[cigar_letters != "I"]
+    # remove starting/trailing nucleotides
+    cigar_numbers <- cigar_numbers[cigar_letters != "S"]
+    cigar_letters <- cigar_letters[cigar_letters != "S"]
+    # remove hard clipping
+    cigar_numbers <- cigar_numbers[cigar_letters != "H"]
+    cigar_letters <- cigar_letters[cigar_letters != "H"]
+    spans <- c(spans, sum(cigar_numbers) / width(templ))
+  }
+  return(spans)
+}
