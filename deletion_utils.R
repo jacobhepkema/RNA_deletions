@@ -50,7 +50,6 @@ BAM_to_granges <- function(path,
   bam_gr_df <- data.frame(chrom=gr_names, start=gr_start, end=rep(0,length(gr_start)), # end placeholder
                           strand=gr_strand, cigar=gr_cigar, seq=gr_seq, qname=gr_r_names)
   bam_gr_df$mapwidth <- mapply(bam_gr_df$cigar, FUN=function(cigar_string){
-    # check if CIGAR string has changes in exonic region
     cigar_numbers <- as.numeric(strsplit(gsub(cigar_string, pattern = "\\.", replacement = ""), "[A-Z]+")[[1]])
     cigar_letters <- strsplit(gsub(cigar_string, pattern = "\\.", replacement = ""), "[0-9]+")[[1]][-c(1)]
     # remove insertions
