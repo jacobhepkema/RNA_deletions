@@ -31,7 +31,7 @@ seq_diverse <- function(seq, frac=0.8){
 }
 
 
-# Read BAM file as GenomicRanges object. REALLY memory-inefficient
+# Read BAM file as GenomicRanges object. REALLY memory-inefficient. Remind me to not write things like this in R
 BAM_to_granges <- function(path, 
                            param = ScanBamParam(what=c("qname", "rname", "strand", "pos", "qwidth", "cigar", "seq", "mapq")),
                            min_mapq = 10, 
