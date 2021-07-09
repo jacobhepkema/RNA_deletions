@@ -75,6 +75,7 @@ BAM_to_granges <- function(path,
 # Given BAM GenomicRanges dataframe and a template, get the span of the reads across the template. 
 # Only really makes sense if you align everything to a single sequence
 get_spans <- function(bam_gr_df, templ){
+  require(GenomicRanges)
   spans <- c()
   pb <- txtProgressBar(0, nrow(bam_gr_df), style=3)
   for(i in 1:nrow(bam_gr_df)){
