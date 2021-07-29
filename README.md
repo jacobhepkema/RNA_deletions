@@ -25,3 +25,7 @@ There is a bit of a different workflow if you only want to consider deletions th
 
 Briefly, this method works like the other function, but will only consider reads that overlap other regions (calculated using the `findOverlaps()` function), and it will make sure there are exon-mapping reads flanking the deletion (on the _same_ exon).
 
+
+### Used packages
+
+`stringr`, `Biostrings`, `GenomicRanges`, `Rsamtools`, optionally also e.g. `BSgenome.Hsapiens.UCSC.hg38` if you aligned to `hg38`. 
