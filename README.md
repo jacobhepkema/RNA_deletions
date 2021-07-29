@@ -12,7 +12,8 @@ The steps for using the functions are usually as follows:
 
 1. Read BAM file using [R package Rsamtools](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html) and convert to GRanges using function `BAM_to_granges()`
 2. Identify deletions in reads using `get_deletion_df_no_overlaps()`. 
-3. Optionally, get information about read span on template using `get_spans()`.
+3. Optionally, retain only deletions whose sequences are diverse by calculating sequence diversity with `seq_diverse()` (this filters out many deletions that might be due to poor mapping)
+4. Optionally, get information about read span on template using `get_spans()`.
 
 ### `get_deletion_df_no_overlaps()`
 
@@ -23,3 +24,4 @@ There is a bit of a different workflow if you only want to consider deletions th
 ### `get_deletion_df()`
 
 Briefly, this method works like the other function, but will only consider reads that overlap other regions (calculated using the `findOverlaps()` function), and it will make sure there are exon-mapping reads flanking the deletion (on the _same_ exon).
+
