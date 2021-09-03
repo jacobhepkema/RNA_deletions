@@ -13,19 +13,36 @@ To generate the BAM files for downstream analysis, run the following:
 
 ## ALKBH5 workflow
 
+The following will run minimap2 and convert the SAM to a BAM file (requires minimap2, samtools):
+
 ```
-minimap2 -t 10 --ax splice --sam-hit-only --cs=long data/SRR9649644.fastq
+./ALKBH5.sh
 ```
+Outputs will be in the `outputs/ALKBH5` directory. 
 
-(Change `-t 10` to how many processors you have available. If it runs with errors, change to fewer processors (might be memory related).
+(Change `-t 10` in the file to how many processors you have available. If it runs with errors, change to fewer processors (might be memory related).
 
-
+Then, to run the downstream analysis, you need to run 
+```
+Rscript ALKBH5.R
+```
+from an environment that contains R & packages `GenomicRanges`, `Biostrings`, `Rsamtools`, and `stringr`. 
 
 ## ChAdOx1 workflow 
+
+Similar to above, first run this script to run minimap2 & samtools:
 
 ```
 To be added
 ```
+Outputs will be in the `outputs/ChAdOx1` directory. 
+
+Then, to run the downstream analysis, run
+```
+
+```
+from the same environment [described above](#alkbh5-workflow).
+
 
 ## S protein constructs workflow
 
