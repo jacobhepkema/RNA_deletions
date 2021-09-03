@@ -27,6 +27,7 @@ Then, to run the downstream analysis, you need to run
 Rscript ALKBH5.R
 ```
 from an environment that contains R & packages `GenomicRanges`, `Biostrings`, `Rsamtools`, and `stringr`. 
+If you need this environment you can get a Singularity image from [this repository (link to be added](https://github.com/jacobhepkema/RNA_deletions_r)
 
 ## ChAdOx1 workflow 
 
