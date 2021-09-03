@@ -1,7 +1,44 @@
 # RNA_deletions
 
 This repository contains scripts accompanying [a recent biorxiv preprint](#).
-The scripts are made to identify small deletions/introns using the CIGAR strings of the alignment BAM file. 
+
+The required data to run the scripts is available here:
+* ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files)
+* ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
+* S protein constructs: download [here (link to be added)](#)
+
+# Workflows
+
+To generate the BAM files for downstream analysis, run the following:
+
+## ALKBH5 workflow
+
+```
+minimap2 -t 10 --ax splice --sam-hit-only --cs=long data/SRR9649644.fastq
+```
+
+(Change `-t 10` to how many processors you have available. If it runs with errors, change to fewer processors (might be memory related).
+
+
+
+## ChAdOx1 workflow 
+
+```
+To be added
+```
+
+## S protein constructs workflow
+
+This uses a small Nextflow pipeline. Download and install Nextflow [using the instructions on their website](https://www.nextflow.io/).
+Then, run the following:
+
+```
+To be added
+```
+
+# Explanation of scripts
+
+The scripts in `deletion_utils.R` are made to identify small deletions/introns using the CIGAR strings of the alignment BAM file. 
 
 Usually, this requires Oxford Nanopore direct RNA or cDNA reads aligned using e.g. [minimap2](https://github.com/lh3/minimap2) as such:
 ```
