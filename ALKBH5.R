@@ -1,12 +1,11 @@
 # ALKBH5 analysis
 
-library(GenomicRanges)
-library(Biostrings)
-library(Rsamtools)
-library(stringr)
-
-source("deletion_utils.R")
-
+suppressMessages(library(stringr))
+suppressMessages(library(GenomicRanges))
+suppressMessages(library(Biostrings))
+suppressMessages(library(BSgenome))
+suppressMessages(library(Rsamtools))
+suppressMessages(source("deletion_utils.R"))
 options(stringsAsFactors = FALSE)
 
 bam_path <- "output/ALKBH5/SRR9646144_plasmid.bam"
@@ -22,7 +21,7 @@ deletion_df <- get_deletion_df_no_overlaps(bam_gr_df = bam_gr_df, templ = templ,
 deletion_df_gr <- makeGRangesFromDataFrame(deletion_df, keep.extra.columns = TRUE)
 
 genome(deletion_df_gr) <- "ALKBH5_mRuby3_plasmid"
-deletion_seqs <- getSeq(templ, deletion_df_gr)
+deletion_seqs <- Biostrings::getSeq(templ, deletion_df_gr)
 deletion_df$seq <- as.character(deletion_seqs)
 deletion_df$seq_diverse <- sapply(deletion_df$seq, FUN=seq_diverse)
 deletion_df <- deletion_df[deletion_df$seq_diverse,]
