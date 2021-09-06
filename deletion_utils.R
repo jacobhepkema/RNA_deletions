@@ -97,7 +97,7 @@ get_spans <- function(bam_gr_df, templ){
 }
 
 
-# Get deletion information without using overlaps with exons/regions
+# Get deletion information without using overlaps with exons/regions
 get_deletion_df_no_overlaps <- function(bam_gr_df,
                                         templ,
                                         min_length = 14){
@@ -277,4 +277,10 @@ get_deletion_df <- function(bam_gr_df, bam_overlaps, exons_gr,
                                size=deletion_sizes)
   deletion_gr_df$region <- paste0(deletion_gr_df$chrom, ":", deletion_gr_df$start, "-", deletion_gr_df$end)
   return(deletion_gr_df)
+}
+
+
+intron_motif <- function(seq){ 
+  split_seq <- strsplit(seq, "")[[1]]
+  return(paste0(paste0(split_seq[c(1,2)], collapse=""), paste0(split_seq[c((length(split_seq)-1), length(split_seq))], collapse=""), collapse=""))
 }
