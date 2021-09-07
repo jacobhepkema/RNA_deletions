@@ -1,11 +1,11 @@
 # RNA_deletions
 
-This repository contains scripts accompanying [a recent biorxiv preprint (link to be added)](#).
+This repository contains scripts accompanying [a recent biorxiv preprint (coming soon)](#).
 
 The required data to run the scripts is available here:
 * ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
 * ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
-* S protein constructs: download [here (link to be added)](#)
+* S protein constructs: download [here (coming soon)](#)
 
 # Workflows
 
@@ -25,7 +25,7 @@ Then, to run the downstream analysis, you need to run
 Rscript ALKBH5.R
 ```
 from an environment that contains R & packages `GenomicRanges`, `Biostrings`, `Rsamtools`, `BSgenome`, and `stringr`. 
-If you need this environment you can get a Singularity image from [this repository (link to be added)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run (after installing [Singularity](https://sylabs.io/guides/2.6/user-guide/index.html)):
+If you need this environment you can get a Singularity image from [this repository (coming soon)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run (after installing [Singularity](https://sylabs.io/guides/2.6/user-guide/index.html)):
 ```
 singularity exec image_name.sif Rscript ALKBH5.R
 ```
@@ -80,7 +80,7 @@ There is a bit of a different workflow if you only want to consider deletions th
 
 ### `get_deletion_df()`
 
-Briefly, this method works like the other function, but will only consider reads that overlap other regions (calculated using the `findOverlaps()` function), and it will make sure there are exon-mapping reads flanking the deletion (on the _same_ exon).
+Briefly, this method works like the other function, but will only consider reads that overlap other regions (e.g. exons) (calculated using the `findOverlaps()` function from R package `GenomicRanges`), and it will make sure there are other-region-mapping reads flanking the deletion (on the _same_ 'other region').
 
 
 ### Used packages
