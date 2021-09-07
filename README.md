@@ -3,7 +3,7 @@
 This repository contains scripts accompanying [a recent biorxiv preprint (link to be added)](#).
 
 The required data to run the scripts is available here:
-* ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files)
+* ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
 * ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
 * S protein constructs: download [here (link to be added)](#)
 
