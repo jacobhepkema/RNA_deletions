@@ -38,15 +38,15 @@ where you replace `image_name.sif` with the filename to the container.
 Similar to above, first run this script to run minimap2 & samtools:
 
 ```
-To be added
+./ChAdOx1.sh
 ```
 Outputs will be in the `outputs/ChAdOx1` directory. 
 
 Then, to run the downstream analysis, run
 ```
-
+Rscript ChAdOx1.R
 ```
-from the same environment [described above](#alkbh5-workflow).
+from the same environment [described above](#alkbh5-workflow), the Singularity environment will work here too.
 
 
 ## S protein constructs workflow
