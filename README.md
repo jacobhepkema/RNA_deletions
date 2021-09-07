@@ -20,8 +20,6 @@ The following will run minimap2 and convert the SAM to a BAM file (requires mini
 ```
 Outputs will be in the `outputs/ALKBH5` directory. 
 
-(Change `-t 10` in the file to how many processors you have available. If it runs with errors, change to fewer processors (might be related to memory per thread).
-
 Then, to run the downstream analysis, you need to run 
 ```
 Rscript ALKBH5.R
