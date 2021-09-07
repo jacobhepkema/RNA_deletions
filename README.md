@@ -3,7 +3,7 @@
 This repository contains scripts accompanying [a recent biorxiv preprint (link to be added)](#).
 
 The required data to run the scripts is available here:
-* ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files)
+* ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
 * ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
 * S protein constructs: download [here (link to be added)](#)
 
@@ -20,33 +20,31 @@ The following will run minimap2 and convert the SAM to a BAM file (requires mini
 ```
 Outputs will be in the `outputs/ALKBH5` directory. 
 
-(Change `-t 10` in the file to how many processors you have available. If it runs with errors, change to fewer processors (might be memory related).
-
 Then, to run the downstream analysis, you need to run 
 ```
 Rscript ALKBH5.R
 ```
 from an environment that contains R & packages `GenomicRanges`, `Biostrings`, `Rsamtools`, `BSgenome`, and `stringr`. 
-If you need this environment you can get a Singularity image from [this repository (link to be added)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run 
+If you need this environment you can get a Singularity image from [this repository (link to be added)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run (after installing [Singularity](https://sylabs.io/guides/2.6/user-guide/index.html)):
 ```
 singularity exec image_name.sif Rscript ALKBH5.R
 ```
-where you replace `image_name.sif` with the filename to the container.
+where you replace `image_name.sif` with the filename of the container.
 
 ## ChAdOx1 workflow 
 
 Similar to above, first run this script to run minimap2 & samtools:
 
 ```
-To be added
+./ChAdOx1.sh
 ```
 Outputs will be in the `outputs/ChAdOx1` directory. 
 
 Then, to run the downstream analysis, run
 ```
-
+Rscript ChAdOx1.R
 ```
-from the same environment [described above](#alkbh5-workflow).
+from the same environment [described above](#alkbh5-workflow), the Singularity environment will work here too.
 
 
 ## S protein constructs workflow
