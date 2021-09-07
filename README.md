@@ -1,11 +1,11 @@
 # RNA_deletions
 
-This repository contains scripts accompanying [a recent biorxiv preprint (link to be added)](#).
+This repository contains scripts accompanying [a recent biorxiv preprint (coming soon)](#).
 
 The required data to run the scripts is available here:
 * ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
 * ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
-* S protein constructs: download [here (link to be added)](#)
+* S protein constructs: download [here (coming soon)](#)
 
 # Workflows
 
@@ -25,7 +25,7 @@ Then, to run the downstream analysis, you need to run
 Rscript ALKBH5.R
 ```
 from an environment that contains R & packages `GenomicRanges`, `Biostrings`, `Rsamtools`, `BSgenome`, and `stringr`. 
-If you need this environment you can get a Singularity image from [this repository (link to be added)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run (after installing [Singularity](https://sylabs.io/guides/2.6/user-guide/index.html)):
+If you need this environment you can get a Singularity image from [this repository (coming soon)](https://github.com/jacobhepkema/RNA_deletions_R). If you pull the Singularity image, you can then run (after installing [Singularity](https://sylabs.io/guides/2.6/user-guide/index.html)):
 ```
 singularity exec image_name.sif Rscript ALKBH5.R
 ```
