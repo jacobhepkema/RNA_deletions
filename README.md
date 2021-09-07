@@ -80,7 +80,7 @@ There is a bit of a different workflow if you only want to consider deletions th
 
 ### `get_deletion_df()`
 
-Briefly, this method works like the other function, but will only consider reads that overlap other regions (e.g. exons) (calculated using the `findOverlaps()` function), and it will make sure there are other-region-mapping reads flanking the deletion (on the _same_ 'other region').
+Briefly, this method works like the other function, but will only consider reads that overlap other regions (e.g. exons) (calculated using the `findOverlaps()` function from R package `GenomicRanges`), and it will make sure there are other-region-mapping reads flanking the deletion (on the _same_ 'other region').
 
 
 ### Used packages
