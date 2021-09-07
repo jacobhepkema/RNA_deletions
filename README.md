@@ -18,7 +18,7 @@ The following will run minimap2 and convert the SAM to a BAM file (requires mini
 ```
 ./ALKBH5.sh
 ```
-Outputs will be in the `outputs/ALKBH5` directory. 
+Outputs will be in the `outputs/ALKBH5` directory. The script uses `-t 8` by default, edit the file to use a different number of processors.
 
 Then, to run the downstream analysis, you need to run 
 ```
@@ -38,7 +38,7 @@ Similar to above, first run this script to run minimap2 & samtools:
 ```
 ./ChAdOx1.sh
 ```
-Outputs will be in the `outputs/ChAdOx1` directory. 
+Outputs will be in the `outputs/ChAdOx1` directory. The script uses `-t 8` by default, edit the file to use a different number of processors.
 
 Then, to run the downstream analysis, run
 ```
