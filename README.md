@@ -29,7 +29,7 @@ If you need this environment you can get a Singularity image from [this reposito
 ```
 singularity exec image_name.sif Rscript ALKBH5.R
 ```
-where you replace `image_name.sif` with the filename to the container.
+where you replace `image_name.sif` with the filename of the container.
 
 ## ChAdOx1 workflow 
 
