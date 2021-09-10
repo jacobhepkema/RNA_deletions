@@ -50,11 +50,19 @@ from the same environment [described above](#alkbh5-workflow), the Singularity e
 ## S protein constructs workflow
 
 This uses a small Nextflow pipeline. Download and install Nextflow [using the instructions on their website](https://www.nextflow.io/).
-Then, run the following:
+Then, run the following in an environment that contains minimap2, samtools:
 
 ```
-To be added
+nextflow S_protein.nf
 ```
+If you want to run it locally, remove the `nextflow.config` file, or edit the `nextflow.config` file [accordingly](https://www.nextflow.io/docs/latest/config.html).
+
+Then, to run the downstream analysis, run
+```
+(to be added) Rscript S_protein.R
+```
+from the same environment [described above](#alkbh5-workflow), the Singularity environment will work here too.
+
 
 # Explanation of scripts
 
