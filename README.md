@@ -59,7 +59,7 @@ If you want to run it locally, remove the `nextflow.config` file, or edit the `n
 
 Then, to run the downstream analysis, run
 ```
-(to be added) Rscript S_protein.R
+Rscript S_protein.R
 ```
 from the same environment [described above](#alkbh5-workflow), the Singularity environment will work here too.
 
