@@ -1,0 +1,10 @@
+ID,sample,template
+P1-1,data/S_protein/P1-rep_one.fastq.gz,templates/S_protein/P67_KT29_KT313.fa
+P1-2,data/S_protein/P1-rep_two.fastq.gz,templates/S_protein/P67_KT29_KT313.fa
+P1-3,data/S_protein/P1-rep_three.fastq.gz,templates/S_protein/P67_KT29_KT406.fa
+P1-4,data/S_protein/P1-rep_four.fastq.gz,templates/S_protein/P67_KT29_KT406.fa
+P13-1,data/S_protein/P13-rep_one.fastq.gz,templates/S_protein/P74_KT29_KT313.fa
+P13-2,data/S_protein/P13-rep_two.fastq.gz,templates/S_protein/P74_KT29_KT406.fa
+P15-1,data/S_protein/P15-rep_one.fastq.gz,templates/S_protein/P109_KT29_KT313.fa
+P15-2,data/S_protein/P15-rep_two.fastq.gz,templates/S_protein/P109_KT29_KT406.fa
+P17,data/S_protein/P17.fastq.gz,templates/S_protein/P163_KT589_KT406.fa

@@ -1,50 +1,52 @@
-samples_file = file("data/S_protein_samples.txt")
-samples_names = samples_file.readLines()
-samples_ch = Channel.fromList(samples_names)
-genome = file("data/hg38.fa")
+Channel
+    .fromPath('data/S_protein_samples_templates.csv')
+    .splitCsv(header:true)
+    .map{ row -> tuple(row.ID, file(row.sample), file(row.template))}
+    .set{ mapping_ch }
 
-process minimap2 {
-    publishDir ".", mode: 'copy', overwrite: true
-
-    input:
-    path c_sample from samples_ch
-
-    output:
-    file "*.sam" into sam_ch
-
-    script:
-    """
-    minimap2 -t 10 -ax splice -uf --sam-hit-only --cs=long \
-      $genome $c_sample > ${c_sample.baseName}_hg38.sam
-    """
+process minimap2 {                                                              
+    publishDir "./output/S_protein", mode: 'copy', overwrite: true                               
+                                                                                
+    input:                                                                      
+    set ID, file(sample), file(template) from mapping_ch
+                                                                                
+    output:                                                                     
+    file "*.sam" into sam_ch                                                    
+                                                                                
+    script:                                                                     
+    """                                                                         
+    minimap2 -t 8 -ax splice --sam-hit-only --cs=long \
+      $template $sample > ${ID}.sam   
+    """                                                                         
+}                                                                               
+                                                                                
+process samtools_sort {                                                         
+    publishDir "./output/S_protein", mode: 'copy', overwrite: true                               
+                                                                                
+    input:                                                                      
+    file sam from sam_ch                                                        
+                                                                                
+    output:                                                                     
+    file "*.bam" into bam_ch                                                    
+                                                                                
+    script:                                                                     
+    """                                                                         
+    samtools sort $sam > ${sam.baseName}.bam                                    
+    """                                                                         
+}                                                                               
+                                                                                
+process samtools_index {                                                        
+    publishDir "./output/S_protein", mode: 'copy', overwrite: true                               
+                                                                                
+    input:                                                                      
+    file bam from bam_ch                                                        
+                                                                                
+    output:                                                                     
+    file "*.bam.bai"                                                            
+                                                                                
+    script:                                                                     
+    """                                                                         
+    samtools index $bam                                                         
+    """                                                                         
 }
 
-process samtools_sort {
-    publishDir ".", mode: 'copy', overwrite: true
-
-    input:
-    file sam from sam_ch
-    
-    output:
-    file "*.bam" into bam_ch
-
-    script:
-    """
-    samtools sort $sam > ${sam.baseName}.bam
-    """
-}
-
-process samtools_index {
-    publishDir ".", mode: 'copy', overwrite: true
-
-    input:
-    file bam from bam_ch
-
-    output:
-    file "*.bam.bai"
-
-    script:
-    """
-    samtools index $bam
-    """
-}
