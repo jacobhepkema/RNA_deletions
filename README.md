@@ -5,7 +5,7 @@ This repository contains scripts accompanying [a recent biorxiv preprint (coming
 The required data to run the scripts is available here:
 * ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
 * ChAdOx1 HEK293: SRA accession SRR13320597 (use `fasterq-dump SRR13320597` in directory `data` to get FASTQ files)
-* S protein constructs: download [here (coming soon)](#)
+* S protein constructs: download [here (data coming soon)](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA762212)
 
 # Workflows
 
@@ -55,7 +55,7 @@ Then, run the following in an environment that contains minimap2, samtools:
 ```
 nextflow S_protein.nf
 ```
-If you want to run it locally, remove the `nextflow.config` file, or edit the `nextflow.config` file [accordingly](https://www.nextflow.io/docs/latest/config.html).
+If you want to run it locally, remove the `nextflow.config` file, or edit the `nextflow.config` file [accordingly](https://www.nextflow.io/docs/latest/config.html). If you want to run in manually, check the contents of the processes in `S_protein.nf` - there should be enough information in that to run minimap2 and samtools from the command line. 
 
 Then, to run the downstream analysis, run
 ```
