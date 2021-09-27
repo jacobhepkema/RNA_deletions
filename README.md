@@ -1,6 +1,6 @@
 # RNA_deletions
 
-This repository contains scripts accompanying [a recent biorxiv preprint (coming soon)](#).
+This repository contains scripts accompanying [a recent biorxiv preprint](https://www.biorxiv.org/content/10.1101/2021.09.15.460454v1).
 
 The required data to run the scripts is available here:
 * ALKBH5: SRA accession SRR9646144 (use `fasterq-dump SRR9646144` in directory `data` to get FASTQ files). `fasterq-dump` is a tool [available in the SRA toolkit](https://github.com/ncbi/sra-tools).
